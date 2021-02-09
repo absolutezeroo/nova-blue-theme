@@ -1,0 +1,30 @@
+:root {
+  --primary: #0b6395;
+  --primary-dark: #0c3a65;
+  --primary-70: rgba(11, 99, 149, 0.7);
+  --primary-50: rgba(11, 99, 149, 0.5);
+  --primary-30: rgba(11, 99, 149, 0.3);
+  --primary-10: rgba(11, 99, 149, 0.1);
+  --logo: #02353c;
+  --sidebar-icon: #7ecaee;
+}
+
+.bg-grad-sidebar {
+  background-image: -webkit-gradient(
+    linear,
+    left bottom,
+    left top,
+    from(#0e3955),
+    to(#0e3955)
+  );
+
+  background-image: linear-gradient(
+    0deg,
+    #0e3955,
+    #0e3955
+  );
+}
+
+.h-dropdown-trigger {
+    height: 60px !important;
+}
