@@ -6,17 +6,20 @@
   --primary-30: rgba(11, 99, 149, 0.3);
   --primary-10: rgba(11, 99, 149, 0.1);
   --logo: #001726;
-  --sidebar-icon: #7ecaee;
+  --sidebar-icon: #eaeaea;
 }
 
 .font-sans {
+  font-size: 16px;
+  font-weight: 600;
   font-family: "Ubuntu", sans-serif;
 }
 
 .bg-grad-sidebar {
-  background-color: rgba(255, 255, 255, 0.9);
+  background-color: rgba(0, 0, 0, 0.9) !important;
+  background-image: none !important;
 }
 
 .h-dropdown-trigger {
-    height: 60px !important;
+  height: 60px !important;
 }
