@@ -10,19 +10,7 @@
 }
 
 .bg-grad-sidebar {
-  background-image: -webkit-gradient(
-    linear,
-    left bottom,
-    left top,
-    from(#0e3955),
-    to(#0e3955)
-  );
-
-  background-image: linear-gradient(
-    0deg,
-    #0e3955,
-    #0e3955
-  );
+  background-color: rgba(255, 255, 255, 0.9);
 }
 
 .h-dropdown-trigger {
