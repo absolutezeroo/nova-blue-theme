@@ -8,7 +8,7 @@ use Laravel\Nova\Nova;
 class ThemeServiceProvider extends ServiceProvider
 {
     const CSS_PATH = __DIR__ . '/../resources/css';
-    const CONFIG_FILE = __DIR__ . '/../config/nova-styling.php';
+    const CONFIG_FILE = __DIR__ . '/../config/nova-habbo-theme.php';
 
     /**
      * Bootstrap any application services.
@@ -38,7 +38,7 @@ class ThemeServiceProvider extends ServiceProvider
         ], 'styling');
 
         // Sets CSS file as asset
-        Nova::theme(asset('vendor/absolutezeroo/nova-styling/marshmallow-theme.css'));
+        Nova::theme(asset('vendor/absolutezeroo/nova-styling/habbo-theme.css'));
         Nova::theme(asset('vendor/absolutezeroo/nova-styling/responsive.css'));
     }
 
