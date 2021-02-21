@@ -20,8 +20,8 @@ class ThemeServiceProvider extends ServiceProvider
     {
         // JS for Responsive design
         Nova::serving(function (ServingNova $event) {
-            Nova::style('nova-habbo-theme',  __DIR__ . '/../dist/css/responsive.css');
-            Nova::script('nova-habbo-theme', __DIR__ . '/../dist/js/responsive.js');
+            Nova::style('nova-habbo-theme',  __DIR__ . '/../resources/css/responsive.css');
+            Nova::script('nova-habbo-theme', __DIR__ . '/../resources/js/responsive.js');
             Nova::provideToScript([
                 'mmns' => config('nova-habbo-theme'),
             ]);
