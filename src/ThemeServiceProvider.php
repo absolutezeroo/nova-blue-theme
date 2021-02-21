@@ -7,6 +7,9 @@ use Laravel\Nova\Nova;
 
 class ThemeServiceProvider extends ServiceProvider
 {
+    const CSS_PATH = __DIR__ . '/../resources/css';
+    const CONFIG_FILE = __DIR__ . '/../config/nova-styling.php';
+
     /**
      * Bootstrap any application services.
      *
@@ -14,13 +17,29 @@ class ThemeServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        Nova::booted(function () {
-            Nova::theme(asset('/absolutezeroo/habbo-theme/theme.css'));
+        // JS for Responsive design
+        Nova::serving(function (ServingNova $event) {
+            Nova::style('nova-styling',  __DIR__ . '/../dist/css/responsive.css');
+            Nova::script('nova-styling', __DIR__ . '/../dist/js/responsive.js');
+            Nova::provideToScript([
+                'mmns' => config('nova-styling'),
+            ]);
+
         });
 
+        // Publishes Config
         $this->publishes([
-            __DIR__.'/../resources/css' => public_path('absolutezeroo/habbo-theme'),
-        ], 'public');
+            self::CONFIG_FILE => config_path('nova-styling.php'),
+        ], 'config');
+
+        // Publish Public CSS for login screen
+        $this->publishes([
+            self::CSS_PATH => public_path('vendor/absolutezeroo/nova-styling'),
+        ], 'styling');
+
+        // Sets CSS file as asset
+        Nova::theme(asset('vendor/absolutezeroo/nova-styling/marshmallow-theme.css'));
+        Nova::theme(asset('vendor/absolutezeroo/nova-styling/responsive.css'));
     }
 
     /**
@@ -30,6 +49,9 @@ class ThemeServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        $this->mergeConfigFrom(
+            self::CONFIG_FILE,
+            'nova-styling'
+        );
     }
 }
