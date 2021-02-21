@@ -30,17 +30,17 @@ class ThemeServiceProvider extends ServiceProvider
 
         // Publishes Config
         $this->publishes([
-            self::CONFIG_FILE => config_path('nova-styling.php'),
+            self::CONFIG_FILE => config_path('nova-habbo-theme.php'),
         ], 'config');
 
         // Publish Public CSS for login screen
         $this->publishes([
-            self::CSS_PATH => public_path('vendor/absolutezeroo/nova-styling'),
+            self::CSS_PATH => public_path('vendor/absolutezeroo/nova-habbo-theme'),
         ], 'styling');
 
         // Sets CSS file as asset
-        Nova::theme(asset('vendor/absolutezeroo/nova-styling/habbo-theme.css'));
-        Nova::theme(asset('vendor/absolutezeroo/nova-styling/responsive.css'));
+        Nova::theme(asset('vendor/absolutezeroo/nova-habbo-theme/habbo-theme.css'));
+        Nova::theme(asset('vendor/absolutezeroo/nova-habbo-theme/responsive.css'));
     }
 
     /**
