@@ -9,7 +9,7 @@ use Laravel\Nova\Nova;
 class ThemeServiceProvider extends ServiceProvider
 {
     const CSS_PATH = __DIR__ . '/../resources/css';
-    const CONFIG_FILE = __DIR__ . '/../config/nova-habbo-theme.php';
+    const CONFIG_FILE = __DIR__ . '/../config/habbo-theme.php';
 
     /**
      * Bootstrap any application services.
@@ -20,26 +20,26 @@ class ThemeServiceProvider extends ServiceProvider
     {
         // JS for Responsive design
         Nova::serving(function (ServingNova $event) {
-            Nova::style('nova-habbo-theme',  __DIR__ . '/../resources/css/responsive.css');
-            Nova::script('nova-habbo-theme', __DIR__ . '/../resources/js/responsive.js');
+            Nova::style('habbo-theme',  __DIR__ . '/../resources/css/responsive.css');
+            Nova::script('habbo-theme', __DIR__ . '/../resources/js/responsive.js');
             Nova::provideToScript([
-                'mmns' => config('nova-habbo-theme'),
+                'mmns' => config('habbo-theme'),
             ]);
         });
 
         // Publishes Config
         $this->publishes([
-            self::CONFIG_FILE => config_path('nova-habbo-theme.php'),
+            self::CONFIG_FILE => config_path('habbo-theme.php'),
         ], 'config');
 
         // Publish Public CSS for login screen
         $this->publishes([
-            self::CSS_PATH => public_path('vendor/absolutezeroo/nova-habbo-theme'),
+            self::CSS_PATH => public_path('vendor/absolutezeroo/habbo-theme'),
         ], 'styling');
 
         // Sets CSS file as asset
-        Nova::theme(asset('vendor/absolutezeroo/nova-habbo-theme/habbo-theme.css'));
-        Nova::theme(asset('vendor/absolutezeroo/nova-habbo-theme/responsive.css'));
+        Nova::theme(asset('vendor/absolutezeroo/habbo-theme/habbo-theme.css'));
+        Nova::theme(asset('vendor/absolutezeroo/habbo-theme/responsive.css'));
     }
 
     /**
@@ -51,7 +51,7 @@ class ThemeServiceProvider extends ServiceProvider
     {
         $this->mergeConfigFrom(
             self::CONFIG_FILE,
-            'nova-styling'
+            'habbo-theme'
         );
     }
 }
