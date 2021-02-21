@@ -38,7 +38,7 @@ class ThemeServiceProvider extends ServiceProvider
         ], 'styling');
 
         // Sets CSS file as asset
-        Nova::theme(asset('vendor/absolutezeroo/habbo-theme/habbo-theme.css'));
+        Nova::theme(asset('vendor/absolutezeroo/habbo-theme/theme.css'));
         Nova::theme(asset('vendor/absolutezeroo/habbo-theme/responsive.css'));
     }
 
